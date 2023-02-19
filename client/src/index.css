@@ -93,3 +93,21 @@ h4 {
   justify-content: center;
   transition: 0.4s;
 }
+
+.addPopup {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--light);
+  background-image: linear-gradient(to bottom right, var(--primary),
+   var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
