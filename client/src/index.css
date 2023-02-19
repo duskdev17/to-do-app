@@ -1,13 +1,95 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  --primary: #D81E5B;
+  --secondary: #8A4EFC;
+  --light: #ffffff;
+  --light-alt: #fafbfc;
+  --dark: #24292e ;
+  --dark-alt: #2b3137;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body{
+  background-color: var(--dark-alt);
+  color: var(--light);
+}
+
+.App {
+  padding: 32px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+h4 {
+  color: var(--light-alt);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.todo {
+  background-color: var(--dark);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.todo:hover {
+  opacity: 0.8;
+}
+
+.todo .checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  border-radius: 999px;
+  background-color: var(--dark-alt);
+  transition: 0.4s;
+}
+
+.todo.is-complete .checkbox {
+  background-color: var(--primary);
+  background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.todo .text{
+  font-size: 20px;
+}
+
+.todo.todo.is-complete .text{
+  text-decoration: line-through;
+}
+
+.todo .delete-todo {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 24px;
+  height: 24px;
+  color: var(--light);
+  background-color: #AF1E2D;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
 }
