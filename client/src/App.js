@@ -18,12 +18,12 @@ function App() {
             .catch(err => console.log("Error: ", err));
     }   
 
-    const completeTodo = async id=> {
+    const completeTodo = async id => {
         const data = await fetch(API_BASE + "/todo/complete/" + id)
             .then(res => res.json())   
 
         setTodos(todos => todos.map(todo => {
-            if (todo._id === data.id) {
+            if (todo._id === data._id) {
                 todo.complete = data.complete;
             }
 
@@ -36,8 +36,27 @@ function App() {
             method: "DELETE"
         }).then(res => res.json());
 
-        setTodos(todos => todos.filter(todo => todo._id !== data.id));
+        setTodos(todos => todos.filter(todo => todo._id !== data._id));
     }
+
+    const addTodo = async () => {
+        const data = await fetch(API_BASE + "/todo/new", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: newTodo
+            })
+        }).then(res => res.json());
+
+        setTodos(todos => [...todos, data]);
+        setPopupActive(false);
+        setNewTodo("");
+    }
+
+
+
 
 	return (
 		<div className="App">
@@ -66,8 +85,17 @@ function App() {
 		
             {popupActive ? (
                 <div className="popup">
-                    <div className="closePopup" onClick={
-                        () => setPopupActive(false)}>x</div>
+                    <div className="closePopup" onClick={() => setPopupActive
+                    (false)}>x</div>
+                        <div className="content">
+                            <h3>Add Task</h3>
+                            <input type="text" 
+                            className='add-todo-input'
+                            onChange={e => setNewTodo(e.target.value)} 
+                            value={newTodo}/>
+                        <div className="button" onClick={addTodo}>Create Task</div>
+
+                        </div>
                 </div>
             ) : ''}     
         </div>
