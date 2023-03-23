@@ -5,13 +5,13 @@ POST http://localhost:3001/todo/new
 Content-Type: application/json
 
 {
-  "text": "Dance"
+  "text": "Order Drinks"
 }   
 
 
 ###
-DELETE  http://localhost:3001/todo/delete/63f7ca1b7f82d5621e7954ef
+DELETE  http://localhost:3001/todo/delete/63f1c3978f9ebea9ddf7d3f2
 
 
 ###
-PUT http://localhost:3001/todo/complete/63f7ca127f82d5621e7954ed
+PUT http://localhost:3001/todo/complete/63f1c3f48f9ebea9ddf7d424
